@@ -14,7 +14,7 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 # Load the YOLO model
-model = YOLO("app/model/best.pt")
+model = YOLO("app/model/bestyolov8s.pt")
 
 @app.post("/detect/")
 async def detect(file: UploadFile = File(...)):
@@ -56,3 +56,6 @@ async def detect(file: UploadFile = File(...)):
         "detections": output,
         "image_url": f"/static/output/{unique_filename}"  # Return the unique image path
     }
+
+
+
