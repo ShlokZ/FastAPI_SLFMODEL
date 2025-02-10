@@ -14,7 +14,7 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 # Load the YOLO model
-model = YOLO("app/model/bestyolov8s.pt")
+model = YOLO("app/model/bestyolov8m.pt")
 
 @app.post("/detect/")
 async def detect(file: UploadFile = File(...)):
